@@ -1,0 +1,10 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\mendo.DESKTOP-KMLCSOQ\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\mendo.DESKTOP-KMLCSOQ\\.nuget\\packages",
+      "C:\\Microsoft\\Xamarin\\NuGet",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ]
+  }
+}

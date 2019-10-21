@@ -1,0 +1,8 @@
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\Leasehold.Common\bin\Debug\netstandard2.0\Leasehold.Common.deps.json
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\Leasehold.Common\bin\Debug\netstandard2.0\Leasehold.Common.dll
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\Leasehold.Common\bin\Debug\netstandard2.0\Leasehold.Common.pdb
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\Leasehold.Common\obj\Debug\netstandard2.0\Leasehold.Common.csprojAssemblyReference.cache
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\Leasehold.Common\obj\Debug\netstandard2.0\Leasehold.Common.AssemblyInfoInputs.cache
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\Leasehold.Common\obj\Debug\netstandard2.0\Leasehold.Common.AssemblyInfo.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\Leasehold.Common\obj\Debug\netstandard2.0\Leasehold.Common.dll
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\Leasehold.Common\obj\Debug\netstandard2.0\Leasehold.Common.pdb
