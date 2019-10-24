@@ -1,4 +1,5 @@
 ﻿using LeaseHold.Web.Data.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LeaseHold.Web.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<User>
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         { }
@@ -17,6 +18,7 @@ namespace LeaseHold.Web.Data
         public DbSet<Property> Properties { get; set; }
         public DbSet<PropertyImage> PropertyImages { get; set; }
         public DbSet<PropertyType> PropertyTypes { get; set; }
+        public DbSet<Manager> Managers { get; set; }
 
 
 

@@ -1,4 +1,5 @@
 ﻿using LeaseHold.Web.Data.Entities;
+using LeaseHold.Web.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +10,63 @@ namespace LeaseHold.Web.Data
     public class SeedDb
     {
         private readonly DataContext _context;
+        private readonly IUserHelper _userHelper;
 
-        public SeedDb(DataContext context)
+        public SeedDb(DataContext context,  IUserHelper userHelper)
         {
             _context = context;
+            _userHelper = userHelper;
         }
 
         public async Task SeedAsync()
         {
             await _context.Database.EnsureCreatedAsync();
+            await CheckRoles();
+            var manager = await CheckUserAsync("19023493", "Raolis", "Mendoza", "raolis1989@gmail.com", "56 9 90833607", "Argomedo 320", "Manager");
+            var owner = await CheckUserAsync("18181208", "Edi", "Mendoza", "raolismendoza@gmail.com", "56 9 90833607", "Lira 320", "Owner"); 
+            var lessee = await CheckUserAsync("261243977", "Nancy", "Cortez", "ncrm2801@gmail.com", "56 9 90833607", "Apumanque 320", "Lessee"); 
             await CheckPropertyTypeAsync();
-            await CheckOwnersAsync();
-            await CheckLesseesAsync();
+            await CheckManagerAsync(manager);
+            await CheckOwnersAsync(owner);
+            await CheckLesseesAsync(lessee);
             await CheckPropertiesAsync();
+            await CheckContractAsync();
         }
 
+        private async Task CheckManagerAsync(User user)
+        {
+            if(!_context.Managers.Any())
+            {
+                _context.Managers.Add(new Manager { User = user });
+                await _context.SaveChangesAsync();
+            }
+        }
+        private async Task CheckContractAsync()
+        {
+            var owner = _context.Owners.FirstOrDefault();
+            var lesse = _context.Lessees.FirstOrDefault();
+            var property = _context.Properties.FirstOrDefault();
+            if (!_context.Contracts.Any())
+            {
+                _context.Contracts.Add(new Contract
+                {
+                    StartDate = DateTime.Today,
+                    EndDate = DateTime.Today.AddYears(1),
+                    IsActive = true,
+                    Lessee= lesse,
+                    Owner= owner,
+                    Price= 800000M,
+                    Property= property, 
+                    Remarks= "Lorem ipsum dolor sit amet, consectetur adipiscing elit"+
+                    " Duis iaculis lobortis mi, nec luctus massa blandit id. Duis commodo, " +
+                    "tortor non finibus dictum, augue magna elementum neque, at semper tellus"+
+                    "neque ut quam. Etiam at risus aliquam, interdum nibh at, ullamcorper est."+
+                    "Quisque eget molestie risus, nec porttitor arcu"
+                }) ;
+
+                await _context.SaveChangesAsync();
+            }
+        }
         private async Task CheckPropertiesAsync()
         {
             var owner = _context.Owners.FirstOrDefault();
@@ -63,24 +106,20 @@ namespace LeaseHold.Web.Data
             });
         }
 
-        private async Task CheckLesseesAsync()
+        private async Task CheckLesseesAsync(User user)
         {
             if (!_context.Lessees.Any())
             {
-                AddLesse("876543", "Leonart", "Mendoza", "0412 3863550", " 0212 2416850", "La California el Marquez Casa #21");
-                AddLesse("654565", "Aleida", "Bandres", "0426 1568987", " 0238 3340612", "Altagracia de Orituco Casa #12");
-                AddLesse("241658", "Augusto", "Rubio", "0414 989877", " 0241 656898", "Intercomunal #55");
+                _context.Lessees.Add(new Lessee { User = user });
                 await _context.SaveChangesAsync();
             }
         }
 
-        private async Task CheckOwnersAsync()
+        private async Task CheckOwnersAsync(User user)
         {
             if(!_context.Owners.Any())
             {
-                AddOwner("89898789", "Raolis", "Mendoza", "222 4546569", "56 9 90833607", "Argomedo 320 Depto 1212");
-                AddOwner("90932232", "Nancy", "Cortez", "222 23223432", "56 9 8345898", "Los Cerrillos Casa 2324");
-                AddOwner("121547896", "Maholis", "Cortez", "222 78787996", "56 9 989564", "La Pintana Casa 2312");
+                _context.Owners.Add(new Owner { User = user });
                 await _context.SaveChangesAsync();
             }
         }
@@ -98,46 +137,43 @@ namespace LeaseHold.Web.Data
                 
             }
         }
+        private async Task CheckRoles()
+        {
+            await _userHelper.CheckRoleAsync("Manager");
+            await _userHelper.CheckRoleAsync("Owner");
+            await _userHelper.CheckRoleAsync("Lessee");
+        }
 
-
-        private void AddOwner(
+        private async Task<User> CheckUserAsync(
             string document, 
             string firstName,
             string lastName, 
-            string fixedPhone, 
-            string cellPhone, 
-            string address)
+            string email, 
+            string phone, 
+            string address, 
+            string role)
         {
-            _context.Owners.Add(new Owner
+            var user = await _userHelper.GetUserByEmailAsyncc(email);
+            if(user==null)
             {
-                Address= address,
-                CellPhone= cellPhone,
-                FixedPhone= fixedPhone,
-                LastName= lastName,
-                FirstName= firstName,
-                Document= document
-            });
+                user = new User
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Email = email,
+                    UserName = email,
+                    PhoneNumber = phone,
+                    Address = address,
+                    Document = document
 
+                };
+
+                await _userHelper.AddUserAsync(user, "123456");
+                await _userHelper.AddUserToRoleAsync(user, role);
+            }
+            return user;
         }
 
-        private void AddLesse(
-            string document,
-            string firstName,
-            string lastName,
-            string cellPhone,
-            string fixedPhone,
-            string address)
-        {
-            _context.Lessees.Add(new Lessee
-            {
-                Address= address,
-                CellPhone= cellPhone,
-                FixedPhone= fixedPhone,
-                LastName= lastName,
-                FirstName= firstName,
-                Document= document
-            });
-        }
 
 
     }

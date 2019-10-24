@@ -38,3 +38,9 @@ D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\Details.cshtml.g.cs
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\Edit.cshtml.g.cs
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\Index.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\PropertyTypes\Create.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\PropertyTypes\Delete.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\PropertyTypes\Details.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\PropertyTypes\Edit.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\PropertyTypes\Index.cshtml.g.cs
