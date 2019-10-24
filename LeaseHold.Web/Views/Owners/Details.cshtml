@@ -55,7 +55,8 @@
     <a asp-action="Index" class="btn btn-success">Back to List</a>
 </div>
 
-if (Model.Properties.Coun==0)
+
+@if (Model.Properties.Count==0)
 {
  <h5>Not Properties added yet.</h5>
 }
