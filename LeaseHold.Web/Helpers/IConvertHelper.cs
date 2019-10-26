@@ -7,5 +7,7 @@ namespace LeaseHold.Web.Helpers
     public interface IConvertHelper
     {
         Task<Property> ToProperty(PropertyViewModel model, bool isNew);
+
+        PropertyViewModel ToPropertyViewModel(Property property);
     }
 }
