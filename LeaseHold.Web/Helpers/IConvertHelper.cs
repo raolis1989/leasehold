@@ -9,5 +9,7 @@ namespace LeaseHold.Web.Helpers
         Task<Property> ToProperty(PropertyViewModel model, bool isNew);
 
         PropertyViewModel ToPropertyViewModel(Property property);
+
+        Task<Contract> ToContractAsync(ContractViewModel model, bool isNew);
     }
 }

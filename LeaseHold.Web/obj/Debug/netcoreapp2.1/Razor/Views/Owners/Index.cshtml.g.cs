@@ -70,7 +70,7 @@ using LeaseHold.Web.Models;
             WriteLiteral("\r\n<h2>Owners</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(128, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f11d5c5d60ef456d9c707500a988d027", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9b260925e1a142f0b8b2e6c36d77c188", async() => {
                 BeginContext(175, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -241,7 +241,7 @@ using LeaseHold.Web.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1988, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ec509a30f91b4cf29798df73b551b509", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9912a2f3b5c4dca8ad72d278e168e22", async() => {
                 BeginContext(2057, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -277,7 +277,7 @@ using LeaseHold.Web.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2085, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de0980d5e98945288a701b9523e67ce6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2b464600e99d4476bb4ea0a5e8c5ec6e", async() => {
                 BeginContext(2154, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -313,7 +313,7 @@ using LeaseHold.Web.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2185, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8178b9050a6645a4b2c253ac38923e82", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "df47daa046b64a25aeb3239090195a73", async() => {
                 BeginContext(2255, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

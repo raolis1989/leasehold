@@ -49,3 +49,4 @@ D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\EditProperty.cshtml.g.cs
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\DetailsProperty.cshtml.g.cs
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\AddImage.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\AddContract.cshtml.g.cs

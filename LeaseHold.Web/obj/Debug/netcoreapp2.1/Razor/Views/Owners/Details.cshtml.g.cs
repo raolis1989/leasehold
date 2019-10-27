@@ -193,7 +193,7 @@ using LeaseHold.Web.Models;
             WriteLiteral("\r\n        </dd>\r\n\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(1304, 78, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d2dfcd95066a4623b6fd77aa3924c33f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02eec873d2c24e6bbb265acceae73155", async() => {
                 BeginContext(1374, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -229,7 +229,7 @@ using LeaseHold.Web.Models;
             WriteLiteral("\r\n    ");
             EndContext();
             BeginContext(1388, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14c63c615696415ebf3e7d058ef84e93", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "25122f9f53a94ceaab396db36a99d86a", async() => {
                 BeginContext(1465, 11, true);
                 WriteLiteral("Add Prperty");
                 EndContext();
@@ -265,7 +265,7 @@ using LeaseHold.Web.Models;
             WriteLiteral("\r\n    ");
             EndContext();
             BeginContext(1486, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbddd65617e44b479b93d4404d1329d1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c44863e342b044baa0763a7598aa0bc2", async() => {
                 BeginContext(1532, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();
@@ -456,7 +456,7 @@ else
             WriteLiteral("\r\n             </td>\r\n             <td>\r\n                 ");
             EndContext();
             BeginContext(3610, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b26ccc9e20a248cca20309f1259a695e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b1282c47200409face3d08355f4123a", async() => {
                 BeginContext(3687, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -492,7 +492,7 @@ else
             WriteLiteral(" |\r\n                 ");
             EndContext();
             BeginContext(3716, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52f290bd86ca4baea71a21a11ff026c2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f2ea2ff040ef4a70a3f45a92be563e17", async() => {
                 BeginContext(3793, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -528,7 +528,7 @@ else
             WriteLiteral(" |\r\n                 ");
             EndContext();
             BeginContext(3825, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0d4187579da4e84b4d509ea4511802d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "858e8f228f4842a998fa13883a7a67d3", async() => {
                 BeginContext(3903, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

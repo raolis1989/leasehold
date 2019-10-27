@@ -373,5 +373,48 @@ namespace LeaseHold.Web.Controllers
 
             return View(model);
         }
+
+        public async Task<IActionResult>  AddContract(int? id)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+
+            var property = await _context.Properties
+                .Include(p => p.Owner)
+                .FirstOrDefaultAsync(p => p.Id == id.Value);
+
+            if(property==null)
+            {
+                return NotFound();
+            }
+
+            var model = new ContractViewModel
+            {
+                OwnerId = property.Owner.Id,
+                PropertyId = property.Id,
+                Lessees = _combosHelper.GetComboLessees(),
+                Price = property.Price,
+                StartDate= DateTime.Today,
+                EndDate= DateTime.Today.AddYears(1)
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public  async Task<IActionResult> AddContract(ContractViewModel view)
+        {
+            if(ModelState.IsValid)
+            {
+                var contract = await _convertHelper.ToContractAsync(view, true);
+                _context.Contracts.Add(contract);
+                await _context.SaveChangesAsync();
+                return RedirectToAction($"{nameof(DetailsProperty)}/{view.OwnerId}");
+            }
+
+            return View(view);
+        }
     }
 }
