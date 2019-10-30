@@ -15,6 +15,13 @@
 
     });
 
+    $('.deleteItem').click((e) => {
+        item_to_delete = e.currentTarget.dataset.id;
+     
+
+    });
+    
+
     $("#btnYesDelete").click(function () {
         if (action_to_delete == 1) {
             window.location.href = '../DeleteImage/' + item_to_delete;
@@ -23,5 +30,11 @@
         else {
             window.location.href = '../DeleteContract/' + item_to_delete;
         }
+    });
+
+    $("#btnYesDeleteOwner").click(function () {
+        window.location.href = '~/../Owners/Delete/' + item_to_delete;
+   
+
     });
 }); 

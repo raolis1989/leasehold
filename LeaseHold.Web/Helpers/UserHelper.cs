@@ -46,6 +46,18 @@ namespace LeaseHold.Web.Helpers
             }
         }
 
+        public async  Task<bool> DeleteUserAsync(string email)
+        {
+            var user = await GetUserByEmailAsyncc(email);
+            if(user==null)
+            {
+                return true;
+            }
+
+            var response = await _userManager.DeleteAsync(user);
+            return response.Succeeded;
+        }
+
         public async Task<User> GetUserByEmailAsyncc(string email)
         {
             return  await _userManager.FindByEmailAsync(email);
@@ -69,6 +81,11 @@ namespace LeaseHold.Web.Helpers
         public async Task LogoutAsync()
         {
             await _signInManager.SignOutAsync();
+        }
+
+        public async Task<IdentityResult> UpdateUserAsync(User user)
+        {
+            return await _userManager.UpdateAsync(user);
         }
     }
 }
