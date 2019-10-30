@@ -100,7 +100,7 @@ namespace LeaseHold.Web.Controllers
                     };
 
                     _context.Owners.Add(owner);
-                    _context.SaveChangesAsync();
+                   await _context.SaveChangesAsync();
 
                     return RedirectToAction("Index");
                 }
@@ -411,10 +411,92 @@ namespace LeaseHold.Web.Controllers
                 var contract = await _convertHelper.ToContractAsync(view, true);
                 _context.Contracts.Add(contract);
                 await _context.SaveChangesAsync();
-                return RedirectToAction($"{nameof(DetailsProperty)}/{view.OwnerId}");
+                return RedirectToAction($"{nameof(DetailsProperty)}/{view.PropertyId}");
             }
 
             return View(view);
         }
+
+
+        public async Task<IActionResult> EditContract(int? id)
+        {
+            if(id== null)
+            {
+                return NotFound();
+            }
+
+            var contract = await _context.Contracts
+                .Include(p => p.Owner)
+                .Include(p=>p.Lessee)
+                .Include(p=>p.Property)
+                .FirstOrDefaultAsync(p=> p.Id== id.Value);
+            
+                if(contract==null)
+                {
+                return NotFound();
+                }
+
+            return View(_convertHelper.ToContractViewModel(contract));
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> EditContract(ContractViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var contract = await _convertHelper.ToContractAsync(model, false);
+                _context.Contracts.Update(contract);
+                await _context.SaveChangesAsync();
+                return RedirectToAction($"{nameof(DetailsProperty)}/{model.PropertyId}");
+            }
+
+            return View(model);
+        }
+
+        
+        public async Task<IActionResult> DeleteImage(int? id)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+
+            var propertyImage = await _context.PropertyImages
+                .Include(pi => pi.Property)
+                .FirstOrDefaultAsync(pi => pi.Id == id.Value);
+
+            if (propertyImage==null)
+            {
+                return NotFound();
+            }
+
+            _context.PropertyImages.Remove(propertyImage);
+            await _context.SaveChangesAsync();
+            return RedirectToAction($"{nameof(DetailsProperty)}/{propertyImage.Property.Id}");
+        }
+
+     
+        public async Task<IActionResult>DeleteContract(int? id)
+        {
+            if(id ==null)
+            {
+                return NotFound();
+            }
+
+            var contract = await _context.Contracts
+                .Include(c => c.Property)
+                .FirstOrDefaultAsync(c => c.Id == id.Value);
+
+            if(contract == null)
+            {
+                return NotFound();
+            }
+
+            _context.Contracts.Remove(contract);
+            await _context.SaveChangesAsync();
+            return RedirectToAction($"{nameof(DetailsProperty)}/{contract.Property.Id}");
+        }
+
     }
 }
