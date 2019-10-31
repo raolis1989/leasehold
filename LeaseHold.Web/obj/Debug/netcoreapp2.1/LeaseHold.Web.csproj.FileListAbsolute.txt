@@ -51,3 +51,6 @@ D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\AddImage.cshtml.g.cs
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\AddContract.cshtml.g.cs
 D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Owners\EditContract.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Property.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Contract.cshtml.g.cs
+D:\Desarrollos\RepositoriosPersonales\Leasing\leasehold\LeaseHold.Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_DeleteDialog.cshtml.g.cs

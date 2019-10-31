@@ -56,78 +56,86 @@
 </div>
 
 
-@if (Model.Properties.Count==0)
+@if (Model.Properties.Count == 0)
 {
- <h5>Not Properties added yet.</h5>
+    <h5>Not Properties added yet.</h5>
 }
-else 
+else
 {
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Neighborhood)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().SquareMeters)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Rooms)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().IsAvailable)
-            </th>
-            <th>
-                Images
-            </th>
-            <th>
-                Contracts
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model.Properties)
-        {
-         <tr>
-             <td>
-                 @Html.DisplayFor(modelItem  => item.Neighborhood)
-             </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.Address)
-             </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.Price)
-             </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.SquareMeters)
-             </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.Rooms)
-             </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.IsAvailable)
-             </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.PropertyImages.Count)
-             </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.Contracts.Count)
-             </td>
-             <td>
-                 <a asp-action="EditProperty" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> |
-                 <a asp-action="DetailsProperty" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
-                 <a asp-action="DeleteProperty" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-             </td>
-         </tr>
-        }
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Neighborhood)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().SquareMeters)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Rooms)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().IsAvailable)
+                </th>
+                <th>
+                    Images
+                </th>
+                <th>
+                    Contracts
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Properties)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Neighborhood)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SquareMeters)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rooms)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAvailable)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyImages.Count)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contracts.Count)
+                    </td>
+                    <td>
+                        <a asp-action="EditProperty" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> |
+                        <a asp-action="DetailsProperty" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                        <button data-id="@item.Id" class="btn btn-danger deleteProperty" data-toggle="modal" data-target="#deleteDialog">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+<partial name="_DeleteDialog" />
+
+@section scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script src="~/js/Leasehold.js"></script>
 
 }

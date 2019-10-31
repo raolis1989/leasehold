@@ -266,6 +266,8 @@ namespace LeaseHold.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction($"Details/{model.OwnerId}");
             }
+
+            model.PropertyTypes = _combosHelper.GeTComboPropertyTypes();
             return View(model);
         }
 
@@ -421,6 +423,9 @@ namespace LeaseHold.Web.Controllers
                 return RedirectToAction($"{nameof(DetailsProperty)}/{view.PropertyId}");
             }
 
+
+            view.Lessees = _combosHelper.GetComboLessees();
+
             return View(view);
         }
 
@@ -503,6 +508,41 @@ namespace LeaseHold.Web.Controllers
             _context.Contracts.Remove(contract);
             await _context.SaveChangesAsync();
             return RedirectToAction($"{nameof(DetailsProperty)}/{contract.Property.Id}");
+        }
+
+
+        public async Task<IActionResult> DeleteProperty(int? id)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+
+            var property = await _context.Properties
+                .Include(p => p.Owner)
+                .Include(p=>p.PropertyImages)
+                .Include(p=>p.Contracts)
+                .FirstOrDefaultAsync(pro => pro.Id == id.Value);
+
+            if(property ==null)
+            {
+                return NotFound();
+            }
+
+
+            if (property.Contracts.Count != 0)
+            {
+                ModelState.AddModelError(string.Empty, "The property cant be deleted because");
+                return RedirectToAction($"{nameof(Details)}/{property.Owner.Id}");
+            }
+
+
+            _context.PropertyImages.RemoveRange(property.PropertyImages);
+            _context.Contracts.RemoveRange(property.Contracts);
+            _context.Properties.Remove(property);
+            await _context.SaveChangesAsync();
+            return RedirectToAction($"{nameof(Details)}/{property.Owner.Id}");
+
         }
 
     }
